@@ -1,0 +1,28 @@
+{
+  "name": "jarvis-pc",
+  "version": "1.0.0",
+  "description": "Jarvis para PC",
+  "main": "main.js",
+  "author": "slipe-uhc",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "dist": "electron-builder --win nsis --publish never"
+  },
+  "devDependencies": {
+    "electron": "^31.0.0",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.slipe.jarvis.pc",
+    "productName": "Jarvis",
+    "files": ["main.js", "preload.js", "app/**/*", "icon.png"],
+    "win": { "target": "nsis", "icon": "icon.png" },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "artifactName": "Jarvis-PC-Setup.exe",
+      "runAfterFinish": true
+    }
+  }
+}
